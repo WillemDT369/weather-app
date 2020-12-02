@@ -1,10 +1,14 @@
-let units = "metric";
+let unit = "metric";
 let appId = "973c1e93dca799be6bfb0246ebbab1b3";
+
 
 function searchWeather(cityName) {
     // also check `${}`syntax
-    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + appId + "&units=metric")
-        .then(function(response) { return response.json() }) // Convert data to json
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + appId + "&units=" + unit)
+        // Convert data to json    
+        .then(function(response) {
+            return response.json()
+        })
         .then(function(data) {
             console.log(data);
         })
@@ -13,9 +17,15 @@ function searchWeather(cityName) {
         });
 }
 
-window.onload = function() {
-    searchWeather("merelbeke");
-}
+document.getElementById("run").addEventListener("click", (event) => {
+    // city has to be inside here otherwise it gets stuck in the first chosen city
+    let city = document.getElementById("city").value;
+    // cancels the default action (here: of the form action attribute) 
+    //https://www.w3schools.com/jsref/event_preventdefault.asp
+    event.preventDefault();
+    console.log(searchWeather(city));
+    // console.log(city);
+})
 
 
 
