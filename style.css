@@ -4,9 +4,10 @@
     box-sizing: border-box;
 }
 
-body {
+.container {
     height: 100vh;
     background: linear-gradient(rgb(59, 45, 45), rgb(40, 91, 158));
     display: flex;
     justify-content: center;
+    color: white;
 }
