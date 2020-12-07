@@ -18,8 +18,6 @@ Nice-to-haves:
 - Allow the user to compare the weather in two cities.
 - Use the API of [https://unsplash.com/](https://unsplash.com/) to show a photo of the city they entered in the form.
 
-
-
 ### How
 - Heaps of googling
 - VsCode
@@ -28,5 +26,13 @@ Nice-to-haves:
 - Javascript
 
 ### The app
-
 [weather-app](https://willemdt369.github.io/weather-app/index.html)
+
+### Author
+Made by [Willem De Troyer](https://github.com/WillemDT369/) for [BeCode](https://becode.org).
+
+### Acknowledgements
+A special thanks to everyone (especially on [stackoverflow](https://stackoverflow.com)) who responded to all the already posed question, which were very useful.
+
+---
+Copyright by Willem De Troyer for [BeCode](https://becode.org).
