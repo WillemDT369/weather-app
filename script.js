@@ -18,7 +18,6 @@ function searchWeather(cityName) {
 }
 
 function displayWeatherInfo(apiData) {
-    console.log(apiData);
     // changing the background depending on which info it gets from the api
     switch (apiData.weather[0].main) {
         case "Clear":
@@ -43,7 +42,7 @@ function displayWeatherInfo(apiData) {
         default:
             break;
     }
-    // putting info from api inside html elements
+    // assigning the html elements
     let forecastHeader = document.getElementById("forecastHeader");
     let description = document.getElementById("description");
     let weatherIcon = document.getElementById("weatherIcon");
@@ -53,7 +52,7 @@ function displayWeatherInfo(apiData) {
     let windDirection = document.getElementById("windDirection");
     let humidity = document.getElementById("humidity");
 
-
+    // putting info from api inside html elements
     forecastHeader.innerText = apiData.name;
     description.innerHTML = apiData.weather[0].description;
     weatherIcon.src = "http://openweathermap.org/img/wn/" + apiData.weather[0].icon + ".png";
