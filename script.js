@@ -19,13 +19,51 @@ function searchWeather(cityName) {
 
 function displayWeatherInfo(apiData) {
     console.log(apiData);
+    // changing the background depending on which info it gets from the api
+    switch (apiData.weather[0].main) {
+        case "Clear":
+            document.body.style.backgroundImage = "url('./images/clear.jpg')";
+            break;
+        case "Clouds":
+            document.body.style.backgroundImage = "url('./images/clouds.jpg')";
+            break;
+        case "Rain":
+        case "Drizzle":
+            document.body.style.backgroundImage = "url('./images/rain.jpg')";
+        case "Mist":
+            document.body.style.backgroundImage = "url('./images/mist.jpg')";
+            break;
+        case "Thunderstorm":
+            document.body.style.backgroundImage = "url('./images/thunderstorm.jpg')";
+            break;
+        case "Snow":
+            document.body.style.backgroundImage = "url('./images/snow.jpg')";
+            break;
+
+        default:
+            break;
+    }
     // putting info from api inside html elements
-    let temperature = document.getElementById("temperature");
     let forecastHeader = document.getElementById("forecastHeader");
+    let description = document.getElementById("description");
+    let weatherIcon = document.getElementById("weatherIcon");
+    let temperature = document.getElementById("temperature");
+    let temperatureFeel = document.getElementById("temperatureFeel");
+    let windSpeed = document.getElementById("windSpeed");
+    let windDirection = document.getElementById("windDirection");
+    let humidity = document.getElementById("humidity");
 
-    temperature.innerHTML = "Todays temperature is " + Math.floor(apiData.main.temp) + "°C";
+
     forecastHeader.innerText = apiData.name;
-
+    description.innerHTML = apiData.weather[0].description;
+    weatherIcon.src = "http://openweathermap.org/img/wn/" + apiData.weather[0].icon + ".png";
+    temperature.innerHTML = "Todays temperature is " + Math.floor(apiData.main.temp) + "°C,";
+    temperatureFeel.innerHTML = "but it feels like " + Math.floor(apiData.main.feels_like) + "°C"
+    windSpeed.innerHTML = "Winds blows at " + apiData.wind.speed + "m/s";
+    windDirection.innerHTML = "Wind direction is " + apiData.wind.deg + " degrees";
+    humidity.innerHTML = "Humidity levels at " + apiData.main.humidity + "%";
+    // making the weatherforecast visible when clicked
+    weatherForecast.style.visibility = "visible";
 
 }
 
@@ -37,5 +75,4 @@ document.getElementById("run").addEventListener("click", (event) => {
     event.preventDefault();
     if (searchWeather(city))
         console.log(searchWeather(city));
-    // console.log(city);
 })
