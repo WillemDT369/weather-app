@@ -8,6 +8,7 @@ This is a consolidation exercise about the javascript we've been learning:
   
 ### Objectives
 Building a weather app with some must have and nice to have features.
+
 Must-haves:
 - In the home page the user can enter the city of his/her choice (think of the right HTML elements here).
 - On clicking the SUBMIT button or pressing ENTER the application will display the weather for the next 5 days.
